@@ -1,0 +1,161 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is a order-service server",
+    "version": "1.0.0",
+    "title": "order Service"
+  },
+  "host": "localhost:3000",
+  "basePath": "/api/v1/order",
+  "paths": {
+    "/delete/{orderId}": {
+      "delete": {
+        "tags": [
+          "Order API"
+        ],
+        "summary": " Delete order details",
+        "description": "",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "orderId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Error"
+          }
+        }
+      }
+    },
+    "/getAllOrders": {
+      "get": {
+        "tags": [
+          "Order API"
+        ],
+        "summary": " Get all orders",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Error"
+          }
+        }
+      }
+    },
+    "/update": {
+      "patch": {
+        "tags": [
+          "Order API"
+        ],
+        "summary": "update order details",
+        "description": "",
+        "operationId": "updateOrder",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Order Object",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "items": {
+                "$ref": "#/definitions/Order"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Error"
+          }
+        }
+      }
+    },
+    "/add": {
+      "post": {
+        "tags": [
+          "Order API"
+        ],
+        "summary": "Create order",
+        "description": "",
+        "operationId": "addOrder",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Order Object",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "items": {
+                "$ref": "#/definitions/Order"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Error"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Order": {
+      "type": "object",
+      "properties": {
+        "orderId": {
+          "type": "string"
+        },
+        "productName": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
