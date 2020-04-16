@@ -1,11 +1,13 @@
-stage('SCM') {
+node{
+  stage('SCM') {
     checkout poll: false, 
     scm: [$class: 'GitSCM', 
-    branches: [[name: 'master']], 
-    doGenerateSubmoduleConfigurations: false, 
-    extensions: [], 
-    submoduleCfg: [], 
-    userRemoteConfigs: [[url: 'https://github.com/saibabanadh/sonar-example.git']]]
+      branches: [[name: 'master']], 
+      doGenerateSubmoduleConfigurations: false, 
+      extensions: [], 
+      submoduleCfg: [], 
+      userRemoteConfigs: [[url: 'https://github.com/saibabanadh/sonar-example.git']
+    ]
   }
   stage('SonarQube Analysis') {
         def scannerHome = tool 'SonarScanner 4.0';
@@ -16,5 +18,5 @@ stage('SCM') {
          -Dsonar.projectKey=sonar-example:app \
          -Dsonar.sources=. \
          -Dsonar.projectBaseDir=/var/jenkins_home/workspace/sonar-example"
-    }
   }
+}
