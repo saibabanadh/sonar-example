@@ -6,7 +6,7 @@ node{
       doGenerateSubmoduleConfigurations: false, 
       extensions: [], 
       submoduleCfg: [], 
-      userRemoteConfigs: [[url: 'https://github.com/saibabanadh/sonar-example.git']
+      userRemoteConfigs: [[url: 'https://github.com/saibabanadh/sonar-example.git']]
     ]
   }
   stage('SonarQube Analysis') {
