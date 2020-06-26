@@ -7,7 +7,8 @@ module.exports = {
 		"port":"27017",
 		"username":"",
 		"password":"",
-		"dbName": "sample"
+		"dbName": "sample",
+		"replicaset":false
 	},
 	LogFilePath: "./logs/",
 	LogStreamFilePath:"./logs/streamlogs/"
